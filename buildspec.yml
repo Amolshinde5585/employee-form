@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing necessary packages
+      - apt-get update -y
+      - apt-get install -y nginx
+  pre_build:
+    commands:
+      - echo Configuring Nginx
+      - cp -r ./html/* /var/www/html/
+  build:
+    commands:
+      - echo Starting Nginx server
+      - systemctl start nginx
+      - echo Nginx server started successfully
+  post_build:
+    commands:
+      - echo Build and server setup completed successfully
+
+artifacts:
+  files:
+    - "**/*" # Optional: Save the HTML files in the build output
