@@ -4,19 +4,20 @@ phases:
   install:
     commands:
       - echo Installing necessary packages
-      - apt-get update -y
-      - apt-get install -y nginx
+      - sudo apt-get update -y
+      - sudo apt-get install -y nginx
   pre_build:
     commands:
       - echo Configuring Nginx
-      - mkdir -p /var/www/html
+      - sudo mkdir -p /var/www/html
       - sudo chmod -R 755 /var/www/html
-      - cp -r ./html/* /var/www/html/
+      - if [ -d "./html" ]; then sudo cp -r ./html/* /var/www/html/; fi
   build:
     commands:
       - echo Starting Nginx server
-      - systemctl start nginx
+      - sudo systemctl start nginx
       - echo Nginx server started successfully
   post_build:
     commands:
       - echo Build and server setup completed successfully
+      - sudo systemctl status nginx
