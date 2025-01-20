@@ -15,9 +15,10 @@ phases:
   build:
     commands:
       - echo Starting Nginx server
-      - sudo systemctl start nginx
+      - sudo nginx
       - echo Nginx server started successfully
   post_build:
     commands:
+      - echo Validating Nginx configuration
+      - sudo nginx -t
       - echo Build and server setup completed successfully
-      - sudo systemctl status nginx
