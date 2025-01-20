@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - hostname
       - echo Installing necessary packages
       - sudo apt-get update -y
       - sudo apt-get install -y nginx
