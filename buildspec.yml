@@ -3,23 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - hostname
-      - echo Installing necessary packages
-      - sudo apt-get update -y
-      - sudo apt-get install -y nginx
-  pre_build:
-    commands:
-      - echo Configuring Nginx
-      - sudo mkdir -p /var/www/html
-      - sudo chmod -R 755 /var/www/html
-      - if [ -d "./html" ]; then sudo cp -r ./html/* /var/www/html/; fi
+      - echo Installing NGINX
+      - sudo apt-get update
+      - sudo apt-get install nginx -y
   build:
     commands:
-      - echo Starting Nginx server
-      - sudo nginx
-      - echo Nginx server started successfully
+      - echo Building started on 'date'
+      - cp index.html /var/www/html/
   post_build:
     commands:
-      - echo Validating Nginx configuration
-      - sudo nginx -t
-      - echo Build and server setup completed successfully
+      - echo Configuring NGINX
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
