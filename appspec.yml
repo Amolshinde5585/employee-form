@@ -9,6 +9,11 @@ hooks:
     - location: install_nginx.sh
       timeout: 300
       runas: root
+
+  ApplicationStop:
+    - location: stop_nginx.sh
+      timeout: 300
+      runas: root      
   ApplicationStart:
     - location: start_nginx.sh
       timeout: 300
