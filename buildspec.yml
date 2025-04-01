@@ -6,6 +6,7 @@ phases:
       - cat /etc/os-release
       - echo Installing NGINX
       - sudo yum clean all
+      - sudo rpm --import https://dl.google.com/linux/linux_signing_key.pub
       - sudo yum update -y
       - sudo yum install nginx -y
       - nginx -v
