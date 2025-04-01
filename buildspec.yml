@@ -6,8 +6,7 @@ phases:
       - cat /etc/os-release
       - echo Installing NGINX
       - sudo yum clean all
-      - sudo yum update -y || echo "Yum update failed, continuing..."
-      - amazon-linux-extras enable nginx1
+      - sudo yum update -y
       - sudo yum install nginx -y
   build:
     commands:
