@@ -5,15 +5,15 @@ phases:
     commands:
       - cat /etc/os-release
       - echo Installing NGINX
-      - sudo yum clean all
-      - sudo yum update -y
-      - sudo yum install nginx -y
+      - sudo apt clean all
+      - sudo apt update -y
+      - sudo apt install nginx -y
       - nginx -v
   build:
     commands:
       - echo Building started on 'date'
       - ls -lh /var
-      - sudo cp index.html /usr/share/nginx/html/
+      - sudo cp index.html /var/www/html/
   post_build:
     commands:
       - echo Configuring NGINX
