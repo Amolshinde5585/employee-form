@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - cat /etc/os-release
       - echo Installing NGINX
       - sudo yum update -y
       - sudo yum install nginx -y
