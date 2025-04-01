@@ -3,10 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-      - cat /etc/os-release
       - echo Installing NGINX
-      - sudo apt-get update -y
-      - sudo apt-get install nginx -y
+      - sudo yum update -y
+      - sudo yum install nginx -y
   build:
     commands:
       - echo Building started on 'date'
