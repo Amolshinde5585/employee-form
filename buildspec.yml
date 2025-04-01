@@ -6,17 +6,19 @@ phases:
       - cat /etc/os-release
       - echo Installing NGINX
       - sudo yum clean all
-      - sudo yum install update -y
+      - sudo yum update -y
       - sudo yum install nginx -y
       - nginx -v
   build:
     commands:
-      - echo Building started on 'date'
-      - ls -lh /var
+      - echo Building started on `date`
+      - ls -lh /usr/share/nginx/html
       - sudo cp index.html /usr/share/nginx/html/
   post_build:
     commands:
       - echo Configuring NGINX
+      - sudo systemctl enable nginx
+      - sudo systemctl start nginx
 
 artifacts:
   files:
