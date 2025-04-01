@@ -13,7 +13,7 @@ phases:
     commands:
       - echo Building started on 'date'
       - ls -lh /var
-      - sudo cp index.html /var/www/html/
+      - sudo cp index.html /usr/share/nginx/html/
   post_build:
     commands:
       - echo Configuring NGINX
