@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo Building started on 'date'
-      - ls -lh
+      - ls -lh /var
       - sudo cp index.html /var/www/html/
   post_build:
     commands:
