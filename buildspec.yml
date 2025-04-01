@@ -5,7 +5,7 @@ phases:
     commands:
       - cat /etc/os-release
       - echo Installing NGINX
-      - sudo yum update -y
+      - sudo yum install update -y
       - sudo yum install nginx -y
   build:
     commands:
