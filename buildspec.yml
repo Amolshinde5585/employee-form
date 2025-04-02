@@ -5,11 +5,6 @@ phases:
     commands:
       - cat /etc/os-release
       - echo Installing NGINX
-      - sudo rpm -e gpg-pubkey-a6bc6e42-* --allmatches --noscripts
-      - sudo rpm -e gpg-pubkey-7fac5991-* --allmatches --noscripts
-      - wget -O /tmp/google_signing_key.pub https://dl.google.com/linux/linux_signing_key.pub
-      - sudo rpm --import /tmp/google_signing_key.pub
-      - rpm -q gpg-pubkey --qf "%{NAME}-%{VERSION}-%{RELEASE} %{SUMMARY}\n"
       - sudo yum clean all
       - sudo yum update -y
       - sudo yum install nginx -y
