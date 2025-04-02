@@ -7,7 +7,8 @@ phases:
       - echo Installing NGINX
       - rm -rf /var/cache/yum
       - sudo rpm --erase gpg-pubkey-7fac5991-* || true
-      - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo rpm --import -
+      - curl -o /tmp/linux_signing_key.pub https://dl.google.com/linux/linux_signing_key.pub
+      - sudo rpm --import /tmp/linux_signing_key.pub
       - sudo yum clean all
       - sudo yum update -y
       - sudo yum install nginx -y
