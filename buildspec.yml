@@ -14,6 +14,7 @@ phases:
     commands:
       - echo Building started on `date`
       - ls -lh /usr/share/nginx/html
+      - sudo rm -rf *
       - sudo cp index.html /usr/share/nginx/html/
   post_build:
     commands:
